@@ -1,0 +1,23 @@
+Pre-rendering
+Generation of HTML pages in advance.
+  - Static Generation: (DEFAULT)
+    HTML generated at build time and will be reused on each request.
+  - Server-side Rendering:
+    HTML generated on each request.
+  - Client-side Rendering:
+    Some parts of a page can be rendered entirely by client side JavaScript. (Date Fetching)
+
+STATIC GENERATION
+
+  export async function getStaticProps() {
+    ...fetch, then return props.
+  }
+
+'getStaticProps' will be called on build time.
+
+You should use getStaticProps if:
+
+  The data required to render the page is available at build time ahead of a user’s request
+  The data comes from a headless CMS
+  The data can be publicly cached (not user-specific)
+  The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance
