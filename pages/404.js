@@ -29,7 +29,7 @@ const NotFound = () => {
 
   useEffect(() => {
     return debounceCounter(() => {
-      router.push('/');
+      // router.push('/');
     })
   }, [countdown]);
 
